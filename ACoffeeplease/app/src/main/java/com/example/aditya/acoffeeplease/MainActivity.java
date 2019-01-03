@@ -23,13 +23,13 @@ public class MainActivity extends AppCompatActivity {
     //Message when chocolate topping is added
     public void chocolaty(View view)
     {
-        Toast.makeText(this, "Added Chocolate topping that costs $1 extra per coffe", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Chocolate topping costs $1 extra per coffe", Toast.LENGTH_SHORT).show();
     }
 
     //Message when Whippy cream topping is added
     public void creamy(View view)
     {
-        Toast.makeText(this, "Added Whipped Cream topping that costs $2 extra per coffee", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Whipped Cream topping costs $2 extra per coffee", Toast.LENGTH_SHORT).show();
     }
 
 
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     public void SubmitOrder(View view) {
 
         int pricePerCoffee, billAmount;
-        String choc="No", whipp="No";
+        String choc, whipp;
 
         //Getting name input. Connvert Editable input into string and store.
         EditText edittext1 = (EditText) findViewById(R.id.editText);
@@ -58,9 +58,12 @@ public class MainActivity extends AppCompatActivity {
         pricePerCoffee = 5;
 
         //increasing price of coffee as per user desire.
-        if(chocolate.isChecked()) pricePerCoffee+=1; choc = "Yes";
+        if(chocolate.isChecked()) {pricePerCoffee+=1; choc = "Yes";}
+        else choc = "No";
 
-        if(whippedCram.isChecked()) pricePerCoffee+=2; whipp = "Yes";
+
+        if(whippedCram.isChecked()) {pricePerCoffee+=2; whipp = "Yes";}
+        else whipp = "No";
 
         billAmount = quantity*pricePerCoffee;
 
